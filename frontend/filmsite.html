@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>New Age - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+
+    
+	<script src="angular.min.js">
+		/*
+			FilmId FilmName Genre Studio Director Producer LeadActor
+		*/
+	</script>
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ </head>
+
+  <body id="page-top" ng-app="myApp" ng-init="total=0" ng-controller="myCtrl">
+
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+                <form class="form-inline">
+
+                    <div ng-model="id"></div>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    FilmId:<input class="form-control" ng-model="FilmId"/>
+                            </div>
+                    </div>
+                    <br/><br/>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    FilmName:<input class="form-control" ng-model="FilmName"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    Genre:<input class="form-control" ng-model="Genre"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    Studio:<input class="form-control" ng-model="Studio"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    Director:<input class="form-control" ng-model="Director"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    Producer:<input class="form-control" ng-model="Producer"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+        
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                                    LeadActor:<input class="form-control" ng-model="LeadActor"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+        
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                            <input class="form-control" type="button" ng-click="submit()" value="Add"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+            
+                    <div class="form-group">
+                            <div class="col-sm-10">
+                            <input class="form-control" type="button" ng-click="update()" value="Update"/>
+                            </div>
+                    </div>
+                    </form>
+                    <br/>
+                    <p>Note:- To update any entry first select the entry from adjacent table by double click.</p>
+                    <br/><br/>        
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </header>
+
+    <section >
+            <div class="container">
+                    <div >
+                            <div>
+                                    <input type="button" ng-click="displayall()" value="Display All Current Data"/>
+                            </div>
+                    </div>
+              <div class="row">
+                <div class="col-md-8 mx-auto">
+                        <h2>Entries:</h2>
+                        <table id="myTable" class="table table-striped">
+                            <tr>
+                                <td>FilmId</td>
+                                <td>FilmName</td>
+                                <td>Genre</td>
+                                <td>Studio</td>
+                                <td>Director</td>
+                                <td>Producer</td>
+                                <td>LeadActor</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr ng-repeat="x in records">
+                                <td ng-click="getData(x.FilmId)">{{x.FilmId}}</td>
+                                <td ng-click="getData(x.FilmId)">{{x.FilmName| myfltr}}</td>
+                                <td ng-click="getData(x.FilmId)">{{x.Genre}}</td>  
+                                <td ng-click="getData(x.FilmId)">{{x.Studio}}</td>  
+                                <td ng-click="getData(x.FilmId)">{{x.Director}}</td>  
+                                <td ng-click="getData(x.FilmId)">{{x.Producer}}</td>  
+                                <td ng-click="getData(x.FilmId)">{{x.LeadActor}}</td>  
+                                <td><input type=button ng-click="delete(x.FilmId)" value="delete"/></td>
+                            </tr>
+                    
+                        </table>
+                </div>
+              </div>
+            </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+
+    <script>
+	
+            var app=angular.module("myApp",[]);
+            app.controller("myCtrl",function($scope, $http){
+                $scope.records=[];
+    
+                $scope.displayall=function()
+                {
+                    let url = "http://127.0.0.1:8000/films/movies/";
+    
+                    $http.get(url)
+                    .then(function(response){
+                        $scope.records=response.data;
+                        console.log(response.data);
+                    }, function(error){
+                        console.log(error); 
+                    });
+    
+                };
+    
+                $scope.submit=function()
+                {
+                    let url = "http://127.0.0.1:8000/films/movies/";
+    
+                    let data = {
+                            'FilmId' : $scope.FilmId,
+                            'FilmName': $scope.FilmName,
+                            'Genre': $scope.Genre,
+                            'Studio' : $scope.Studio,
+                            'Director' : $scope.Director,
+                            'Producer' : $scope.Producer,
+                            'LeadActor' : $scope.LeadActor
+                        };
+                    
+                    $http.post(url,data)
+                    .then(function(response){
+                        console.log(response.data);
+                        $scope.displayall();
+                    }, function(error){
+                        console.log(error); 
+                        alert("Invalid FilmId...!!!\n(May be duplicated FilmId)");
+                    });
+    
+                };
+    
+                $scope.delete=function(fid)
+                {
+                    
+                    let url = "http://127.0.0.1:8000/films/movies/"+fid+"/";
+                    
+                    $http.delete(url)
+                    .then(function(response){
+                        console.log(response.data);
+                        $scope.displayall();
+                    }, function(error){
+                        console.log(error); 
+                    });
+                };
+    
+                $scope.getData=function(fid)
+                {
+                    
+                    let url = "http://127.0.0.1:8000/films/movies/"+fid+"/";
+                    
+                    
+                    $http.get(url)
+                    .then(function(response){
+                        $scope.FilmId=response.data["FilmId"];
+                        $scope.FilmName=response.data["FilmName"];
+                        $scope.Genre=response.data["Genre"];
+                        $scope.Studio=response.data["Studio"];
+                        $scope.Director=response.data["Director"];
+                        $scope.Producer=response.data["Producer"];
+                        $scope.LeadActor=response.data["LeadActor"];
+                        $scope.id=$scope.FilmId;
+                        console.log(response.data);
+                    }, function(error){
+                        console.log(error); 
+                    });
+                };
+    
+                $scope.update=function()
+                {
+                    let url = "http://127.0.0.1:8000/films/movies/"+$scope.id+"/";
+    
+                    let data = {
+                            'FilmId' : $scope.FilmId,
+                            'FilmName': $scope.FilmName,
+                            'Genre': $scope.Genre,
+                            'Studio' : $scope.Studio,
+                            'Director' : $scope.Director,
+                            'Producer' : $scope.Producer,
+                            'LeadActor' : $scope.LeadActor
+                        };
+                    
+                    $http.put(url,data)
+                    .then(function(response){
+                        console.log(response.data);
+                        $scope.displayall();
+                    }, function(error){
+                        console.log(error); 
+                        alert("Invalid FilmId...!!!\n(May be duplicated FilmId)");
+                    });
+    
+                };
+            });
+    
+            app.filter("myfltr",function()
+            {
+                var toUpper=function(data)
+                {
+                    return data.toUpperCase();
+                }
+                return toUpper;
+            });
+    
+        </script>
+    
+  </body>
+
+</html>
